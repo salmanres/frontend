@@ -9,6 +9,8 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import RegisterPage from './dashboard/auth/RegisterPage';
 import HomePage from './dashboard/HomePage';
 import LoginPage from './dashboard/auth/LoginPage';
+import ProductsPage from './dashboard/ProductsPage';
+import ProductDetailsPage from './dashboard/ProductDetailsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +21,9 @@ root.render(
           <Route path='' element={<HomePage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login/:count' element={<LoginPage />} />
+          <Route path='/login/:count' element={<LoginPage />} />
+          <Route path='/products' element={<ProductsPage />} />
+          <Route path='/productdetails/:id' element={<ProductDetailsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

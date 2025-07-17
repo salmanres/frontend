@@ -22,6 +22,9 @@ function Navbar() {
                 <Link to="/login" className='m-3'>LOGIN</Link>
               </li>
               <li className="nav-item">
+                <Link to="/products" className='m-3'>PRODUCTS</Link>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
