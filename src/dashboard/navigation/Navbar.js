@@ -25,6 +25,9 @@ function Navbar() {
                 <Link to="/products" className='m-3'>PRODUCTS</Link>
               </li>
               <li className="nav-item">
+                <Link to="/hookform" className='m-3'>hook form</Link>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>

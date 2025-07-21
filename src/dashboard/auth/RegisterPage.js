@@ -1,47 +1,43 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
 
 function RegisterPage() {
+    
+    const [data, setdata] = useState();
 
-    let [count, setCount] = useState(1);
-    const inputref = useRef();
-    const navigate = useNavigate();
+    const getdata = (event) => {
+        setdata({
+            ...data,
+            [event.target.name]: event.target.value
+        });
+        console.log(data);
+    };
 
-    const focus = () => {
-        inputref.current.focus();
+    const handleregister = () => {
+        if (data && data.username && data && data.email) {
+            localStorage.setItem('userdata', JSON.stringify(data));
+            // alert('registration successful');
+            toast.success('registration successful!');
+        }else{
+            toast.error('all fields are required!');
+        };
     }
-
-    const increase = () => {
-        setCount(count++);
-    };
-
-    const welcomefunction = () => {
-        console.log('hello this is welcome message');
-    };
-
-    const register = () => {
-        alert('registered successfully');
-        navigate(`/login/${count}`);
-    };
-
-    useEffect(()=>{
-        welcomefunction();
-        focus();
-    }, [count]);
-
     return (
         <Fragment>
-
-            <h1>{count}</h1>
-            <button onClick={increase}>increase</button>
-            <input type='text' ref={inputref} placeholder='enter username' />
-            <input type='email' placeholder='enter email' />
-            <input type='number' placeholder='enter mobile' />
-            <input type='password' placeholder='enter password' />
-            <button onClick={register}>register</button>
-
+            <div className='container-fluid'>
+                <div className='row justify-content-center'>
+                    <div className='col-lg-4'>
+                        <input className='form-control mt-3 ' type='text' placeholder='enter username' name='username' onInput={getdata} />
+                        <input className='form-control mt-3' type='email' placeholder='enter email' name='email' onInput={getdata} />
+                        <input className='form-control mt-3' type='number' placeholder='enter mobile' name='mobile' onInput={getdata} />
+                        <input className='form-control mt-3' type='password' placeholder='enter password' name='password' onInput={getdata} />
+                        <button className='btn btn-warning w-100 mt-3' onClick={handleregister}>register</button>
+                    </div>
+                </div>
+            </div>
+            <ToastContainer />
         </Fragment>
     )
 }
-
 export default RegisterPage

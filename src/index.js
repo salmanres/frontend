@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -9,8 +9,11 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import RegisterPage from './dashboard/auth/RegisterPage';
 import HomePage from './dashboard/HomePage';
 import LoginPage from './dashboard/auth/LoginPage';
-import ProductsPage from './dashboard/ProductsPage';
+// import ProductsPage from './dashboard/ProductsPage';
 import ProductDetailsPage from './dashboard/ProductDetailsPage';
+import ReactHookFormPage from './dashboard/ReactHookFormPage';
+
+const ProductsPage = React.lazy(() => import('./dashboard/ProductsPage'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,8 +25,13 @@ root.render(
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login/:count' element={<LoginPage />} />
           <Route path='/login/:count' element={<LoginPage />} />
-          <Route path='/products' element={<ProductsPage />} />
+          <Route path='/products' element={
+            <Suspense fallback={<label>loading ...</label>}>
+              <ProductsPage />
+            </Suspense>
+          } />
           <Route path='/productdetails/:id' element={<ProductDetailsPage />} />
+          <Route path='/hookform' element={<ReactHookFormPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
