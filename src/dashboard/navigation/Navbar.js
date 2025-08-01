@@ -28,6 +28,12 @@ function Navbar() {
                 <Link to="/hookform" className='m-3'>hook form</Link>
               </li>
               <li className="nav-item">
+                <Link to="/redux" className='m-3'>redux</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/apipage" className='m-3'>api</Link>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>

@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux';
 
 function ReactHookFormPage() {
+    const count = useSelector((state)=> state.counter.value);
 
     const {
         register, handleSubmit, formState: { errors }, } = useForm();
@@ -12,7 +14,7 @@ function ReactHookFormPage() {
 
     return (
         <Fragment>
-            <h1>rhf</h1>
+            <h1>{count}</h1>
             <div className='container-fluid'>
                 <div className='row justify-content-center'>
                     <div className='col-lg-4'>
