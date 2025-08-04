@@ -31,6 +31,9 @@ function Navbar() {
                 <Link to="/redux" className='m-3'>redux</Link>
               </li>
               <li className="nav-item">
+                <Link to="/context" className='m-3'>context api</Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/apipage" className='m-3'>api</Link>
               </li>
               <li className="nav-item">
